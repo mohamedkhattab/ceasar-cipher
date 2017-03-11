@@ -1,0 +1,18 @@
+package main
+
+import (
+	"fmt"
+
+	bf "github.com/mohamedkhattab/ceasar-cipher/bruteforce"
+	cc "github.com/mohamedkhattab/ceasar-cipher/ceasarcipher"
+)
+
+func main() {
+	cipher := cc.CeasarCipher{18}
+	enc := cipher.Encrypt("secret {!~message~!}")
+	fmt.Println(enc)
+
+	cracker := bf.BruteForceSingle{}
+	key, text := cracker.Crack(enc)
+	fmt.Printf("Key: %d, message: %s", key, text)
+}

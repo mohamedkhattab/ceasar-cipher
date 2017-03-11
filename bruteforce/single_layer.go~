@@ -1,0 +1,55 @@
+package bruteforce
+
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+
+	cc "github.com/mohamedkhattab/ceasar-cipher/ceasarcipher"
+)
+
+type BruteForceSingle struct{}
+
+func (bfs *BruteForceSingle) Crack(cipherText string) (int, string) {
+	// init cipher
+	// loop for 94 iterations
+	// decrypt each iteration wiht new key
+	var key int
+	var text string
+	cipher := cc.CeasarCipher{0}
+	f, err := os.Open("words.txt")
+	store := make([]string)	
+	scanner := bufio.NewScanner(f)
+	for scanner.Scan() {
+	    
+	}
+	defer f.Close()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "\n%v\n", err)
+	}
+
+
+	for i := 1; i <= 94; i++ {
+		cipher.Key = int32(i)
+		text = cipher.Decrypt(cipherText)
+		words := strings.Split(text, " ")
+		word := strings.TrimSpace(words[0])
+		//_, err = f.Seek(0, 0)
+		//if err != nil {
+		//	log.Fatal(err)
+		//}
+		for scanner.Scan() {
+			fmt.Println(word)
+			//if word == "secret" {
+			//	fmt.Println("here")
+			//}
+			//fmt.Printf("Res: %v, word: %s\n", word == scanner.Text(), word)
+			if word == scanner.Text() {
+				key = i
+			}
+		}
+	}
+
+	return key, text
+}
