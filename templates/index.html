@@ -1,0 +1,60 @@
+{{ define "layout" }}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Document</title>
+	<!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+	<!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+	<div class="card-panel indigo darken-4" style="margin-top: 0;color: white;">
+	  <h1>Extended Ceasar Cipher</h1>
+	  <h6>Website By <a href="https://www.facebook.com/muhammadckhattab">Mohamed Khattab</a></h6>
+	  <h6>Cipher By <a href="https://www.facebook.com/noha.seddikabdelsalam?fref=ts">Noha Seddik</a></h6>
+	</div>
+
+	<div class="container">
+	  <div class="row">
+		<div class="col s12">
+		  <div class="input-field col s12">
+			<textarea id="textarea1" class="materialize-textarea"></textarea>
+			<label for="textarea1">Enter Cipher Text...</label>
+			<div class="input-field col s12">
+			  <select>
+				<option value="1">Encrypt ASCII</option>
+				<option value="2">Decrypt ASCII</option>
+				<option value="3">Encrypt Multi-Layer</option>
+				<option value="4">Decrypt Multi-Layer</option>
+				<option value="5">Brute Force ASCII</option>
+				<option value="4">Brute Force Multi-Layer</option>
+			  </select>
+			  <label>Select Mode</label>
+			</div>
+			<button class="btn waves-effect waves-light" name="action">Encrypt/Decrypt
+			  <i class="material-icons right">send</i>
+			</button>
+          </div>
+		</div>
+	  </div>
+	</div>
+	
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+	<script>
+	  $(document).ready(function() {
+        $('select').material_select();
+	  });
+	</script>
+	<script src="/public/main.js"></script>
+  </body>
+</html>
+
+{{ end }}
